@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "maestro",
+    "type": "module",
+    "version": "0.1.0",
+    "description": "A basic ECS for the browser",
+    "author": "Brian Reece <me@bdreece.dev>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com:bdreece/maestro.git"
+    },
+    "main": "./dist/maestro.umd.cjs",
+    "module": "./dist/maestro.js",
+    "types": "./dist/maestro.d.ts",
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        "import": "./dist/maestro.js",
+        "require": "./dist/maestro.umd.cjs",
+        "types": "./dist/maestro.d.ts"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "test": "vitest run",
+        "lint": "eslint --fix",
+        "format": "prettier --check --write",
+        "prepare": "husky"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.20.0",
+        "@rollup/plugin-node-resolve": "^16.0.0",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@rollup/plugin-typescript": "^12.1.2",
+        "@tsconfig/strictest": "^2.0.5",
+        "@types/eslint__js": "^8.42.3",
+        "@types/eslint-config-prettier": "^6.11.3",
+        "eslint": "^9.20.0",
+        "eslint-config-prettier": "^10.0.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.4.3",
+        "prettier": "^3.4.2",
+        "rollup": "^4.34.6",
+        "rollup-plugin-dts": "^6.1.1",
+        "tslib": "^2.8.1",
+        "typescript": "^5.7.3",
+        "typescript-eslint": "^8.23.0"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "npm run lint",
+            "npm run format"
+        ],
+        "*.json": [
+            "npm run format"
+        ]
+    }
+}
